@@ -10,7 +10,7 @@ import exceptions.DuplicateKeyException;
 * 
 * Class Definition: This interface represents the public contract for the
 * implementation of Dictionary for the DictionaryADT Lab. 
-* @throws DuplicateKeyException
+* 
 */
 
 public interface DictionaryADT<K,V>
