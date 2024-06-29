@@ -11,21 +11,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
-import implementations.Dictionary;
-
 /**
  *
  * @author istoe
  */
 public class DictionaryTest {
+    
     public DictionaryTest() {
     }
     
-    /**
-     * 
-     */
     @BeforeClass
     public static void setUpClass() {
     }
@@ -43,75 +37,16 @@ public class DictionaryTest {
     }
 
     /**
-     * Test of hasKey method, of class Dictionary.
+     * Test of insert method, of class Dictionary.
      */
     @Test
-    public void testHasKey() {
-        System.out.println("hasKey");
-        Object key = null;
-        Dictionary instance = null;
-        boolean expResult = false;
-        boolean result = instance.hasKey(key);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of hasValue method, of class Dictionary.
-     */
-    @Test
-    public void testHasValue() {
-        System.out.println("hasValue");
-        Object value = null;
-        Dictionary instance = null;
-        boolean expResult = false;
-        boolean result = instance.hasValue(value);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of get method, of class Dictionary.
-     */
-    @Test
-    public void testGet() {
-        System.out.println("get");
-        Object key = null;
-        Dictionary instance = null;
-        Object expResult = null;
-        Object result = instance.get(key);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of isEmpty method, of class Dictionary.
-     */
-    @Test
-    public void testIsEmpty() {
-        System.out.println("isEmpty");
-        Dictionary instance = null;
-        boolean expResult = false;
-        boolean result = instance.isEmpty();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of add method, of class Dictionary.
-     */
-    @Test
-    public void testAdd() throws Exception {
-        System.out.println("add");
+    public void testInsert() throws Exception {
+        System.out.println("insert");
         Object key = null;
         Object value = null;
         Dictionary instance = null;
         boolean expResult = false;
-        boolean result = instance.add(key, value);
+        boolean result = instance.insert(key, value);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -133,30 +68,31 @@ public class DictionaryTest {
     }
 
     /**
-     * Test of size method, of class Dictionary.
+     * Test of updateValue method, of class Dictionary.
      */
     @Test
-    public void testSize() {
-        System.out.println("size");
+    public void testUpdateValue() {
+        System.out.println("updateValue");
+        Object key = null;
+        Object value = null;
         Dictionary instance = null;
-        int expResult = 0;
-        int result = instance.size();
+        boolean expResult = false;
+        boolean result = instance.updateValue(key, value);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of updateKey method, of class Dictionary.
+     * Test of lookUp method, of class Dictionary.
      */
     @Test
-    public void testUpdateKey() {
-        System.out.println("updateKey");
+    public void testLookUp() {
+        System.out.println("lookUp");
         Object key = null;
-        Object newKey = null;
         Dictionary instance = null;
-        boolean expResult = false;
-        boolean result = instance.updateKey(key, newKey);
+        Object expResult = null;
+        Object result = instance.lookUp(key);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

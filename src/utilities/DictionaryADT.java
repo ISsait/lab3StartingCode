@@ -16,34 +16,7 @@ import exceptions.DuplicateKeyException;
 */
 
 public interface DictionaryADT<K,V>
-{
-    /**
-     * Checks the set of keys to determine of the dictionary contains the given key
-     * @param key
-     * @return true if dictionary contains the specified key
-     */
-    boolean hasKey(K key);
-    
-    /**
-     * Checks the set of values to determine of the dictionary contains the given value
-     * @param value
-     * @return true if the dictionary contains the specified value
-     */
-    boolean hasValue(V value);
-    
-    /**
-     * Returns the value for the given key
-     * @param key
-     * @return V the value referenced by the specified key
-     */
-    V get(K key);
-    
-    /**
-     * Checks the length of the list. If length == 0 returns true.
-     * @return true if the list is empty
-     */
-    boolean isEmpty();
-    
+{    
     /**
      * Attempts to adds the key value pair to the dictionary
      * @param key
@@ -51,7 +24,7 @@ public interface DictionaryADT<K,V>
      * @return true if add operation is successful
      * @throws DuplicateKeyException if the key already exists in the dictionary
      */
-    boolean add(K key, V value) throws DuplicateKeyException;
+    boolean insert(K key, V value) throws DuplicateKeyException;
     
     /**
      * Removes and returns the value with the specified key
@@ -61,16 +34,17 @@ public interface DictionaryADT<K,V>
     V remove(K key);
     
     /**
-     * Returns the number of entries in the dictionary
-     * @return int the length of the dictionary
-     */
-    int size();
-    
-    /**
-     * Changes K key to the new provided key given K newKey
+     * Changes the value paired with the given key to the value passed
      * @param key
-     * @param newKey
+     * @param value
      * @return true if the operation is successful
      */
-    boolean updateKey(K key, K  newKey);
+    boolean updateValue(K key, V value);
+    
+    /**
+     * Returns the value for the given key
+     * @param key
+     * @return V the value referenced by the specified key
+     */
+    V lookUp(K key);
 }
