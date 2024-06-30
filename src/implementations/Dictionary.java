@@ -25,7 +25,7 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
     }
 
     @Override
-    public V remove(K key) {
+    public V remove(K key)throws NullPointerException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

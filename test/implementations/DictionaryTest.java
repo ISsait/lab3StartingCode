@@ -22,6 +22,7 @@ public class DictionaryTest {
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @AfterClass

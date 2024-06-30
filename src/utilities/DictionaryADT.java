@@ -30,6 +30,7 @@ public interface DictionaryADT<K,V>
      * Removes and returns the value with the specified key
      * @param key
      * @return V the removed value
+     * @throws NullPointerException if key does not exist
      */
     V remove(K key);
     
