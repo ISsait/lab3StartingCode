@@ -14,28 +14,27 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
 	private ArrayList<K> keys;
 	private ArrayList<V> values;
 
-    public Dictionary(ArrayList<K> keys, ArrayList<V> values) {
-        this.keys = new ArrayList<>();
-        this.values = new ArrayList<>();
+        public Dictionary() {
+            this.keys = new ArrayList<>();
+            this.values = new ArrayList<>();
     }
 
-    @Override
-    public boolean insert(K key, V value) throws DuplicateKeyException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public V remove(K key)throws NullPointerException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public boolean updateValue(K key, V value) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public V lookUp(K key) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        
+        // blank methods to implement ADT and get rid of errors
+        @Override
+        public boolean insert(K key, V value){
+            return false;
+        }
+        @Override
+        public boolean remove(K key){
+            return false;
+        }
+        @Override
+        public boolean update(K key, V Valu){
+            return false;
+        }
+        @Override
+        public V lookup(K key) {
+            return null;
+        }
 }

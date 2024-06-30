@@ -1,51 +1,61 @@
 package utilities;
 
-import exceptions.DuplicateKeyException;
+import exceptions.*;
 
 /**
 * DictionaryADT.java
 *
-* @author Ian Stoesz
-* @version 1.0
+* @author Chloe Nibali
+*
 * 
 * Class Definition: This interface represents the public contract for the
-* implementation of Dictionary for the DictionaryADT Lab.
-* Type K the key used to identify the corresponding value
-* Type V the value
+* implementation of Dictionary for the DictionaryADT Lab. 
 * 
 */
 
 public interface DictionaryADT<K,V>
-{    
+{
     /**
-     * Attempts to adds the key value pair to the dictionary
-     * @param key
-     * @param value
-     * @return true if add operation is successful
-     * @throws DuplicateKeyException if the key already exists in the dictionary
+     * Inserts a new Key/Value pair into the dictionary
+     * If the key already exists, DuplicateKeyException is thrown
+     * If the key OR value is NULL, NullPointerException is thrown
+     * 
+     * @param key -the key being inserted, but me UNIQUE and NOT NULL
+     * @param value - the value associated with the key, must NOT be NULL
+     * @throws DuplicateKeyException When inputted key already exists
+     * @throws IllegalArgumentException When either key OR value inputted is NULL
      */
-    boolean insert(K key, V value) throws DuplicateKeyException;
+    public boolean insert(K key, V value)throws DuplicateKeyException, IllegalArgumentException;
     
     /**
-     * Removes and returns the value with the specified key
-     * @param key
-     * @return V the removed value
-     * @throws NullPointerException if key does not exist
+     * Removes the Key/Value pair associated with the inputted key from the dictionary.
+     * 
+     * @param key the key belonging to the Key/Value pair that the user wishes to remove
+     * @throws IllegalArgumentException if the key IS NULL
+     * @throws KeyNotFoundException if the key does not exist in the dictionary
+     * @return true if pair is successfully removed, False if not.
      */
-    V remove(K key);
+    public boolean remove(K key) throws IllegalArgumentException, KeyNotFoundException;
     
     /**
-     * Changes the value paired with the given key to the value passed
-     * @param key
-     * @param value
-     * @return true if the operation is successful
+     * Updates a Key/Value pair in the dictionary. Finds pair with key matching the inputted key
+     * and replaces the associated value with the new inputted value
+     * 
+     * @param key The key belonging to the key/Value pair to be updated
+     * @param value The new value the user wishes to assign to the Key/Value pair
+     * @throws IllegalArgumentException if the Key OR Value inputted are NULL
+     * @throws KeyNotFoundException if the key does not exist in the dictionary
+     * @return True if update was successfully completed, False if not.
      */
-    boolean updateValue(K key, V value);
+    public boolean update(K key, V value) throws IllegalArgumentException, KeyNotFoundException;
     
     /**
-     * Returns the value for the given key
-     * @param key
-     * @return V the value referenced by the specified key
+     * Retrieves the Value associated with and inputted Key
+     * 
+     * @param key the key of the pair the user wishes to see the value for
+     * @throws KeyNotFoundException if the inputted key is NULL or does not exist in dictionary
+     * @retun the value associated with the inputted key
      */
-    V lookUp(K key);
+    public V lookup(K key) throws KeyNotFoundException;
+    
 }
