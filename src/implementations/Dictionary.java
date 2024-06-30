@@ -13,12 +13,21 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
 	// index indicates pairing, e.g. keys[1] is stored at values[1]
 	private ArrayList<K> keys;
 	private ArrayList<V> values;
+
+    public Dictionary() {
+        this.keys = new ArrayList<K>();
+        this.values = new ArrayList<V>();
+    }
+        
         
         
         // blank methods to implement ADT and get rid of errors
         @Override
-        public void insert(K key, V value){
-            
+        public boolean insert(K key, V value){
+            // check values are valid - possible exception
+            this.keys.add(key);
+            this.values.add(value);
+            return false;
         }
         @Override
         public boolean remove(K key){
