@@ -15,8 +15,8 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
 	private ArrayList<V> values;
 
     public Dictionary(ArrayList<K> keys, ArrayList<V> values) {
-        keys = new ArrayList<>();
-        values = new ArrayList<>();
+        this.keys = new ArrayList<>();
+        this.values = new ArrayList<>();
     }
 
     @Override
