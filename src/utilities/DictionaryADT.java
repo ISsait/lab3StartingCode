@@ -22,20 +22,21 @@ public interface DictionaryADT<K,V>
      * 
      * @param key -the key being inserted, but me UNIQUE and NOT NULL
      * @param value - the value associated with the key, must NOT be NULL
+     * @return True if operation was successful, false if not.
      * @throws DuplicateKeyException When inputted key already exists
-     * @throws IllegalArgumentException When either key OR value inputted is NULL
+     * @throws NullPointerException When either key OR value inputted is NULL
      */
-    public void insert(K key, V value)throws DuplicateKeyException, IllegalArgumentException;
+    public boolean insert(K key, V value)throws DuplicateKeyException, NullPointerException;
     
     /**
      * Removes the Key/Value pair associated with the inputted key from the dictionary.
      * 
      * @param key the key belonging to the Key/Value pair that the user wishes to remove
-     * @throws IllegalArgumentException if the key IS NULL
+     * @throws NullPointerException if the key IS NULL
      * @throws KeyNotFoundException if the key does not exist in the dictionary
      * @return true if pair is successfully removed, False if not.
      */
-    public boolean remove(K key) throws IllegalArgumentException, KeyNotFoundException;
+    public boolean remove(K key) throws NullPointerException, KeyNotFoundException;
     
     /**
      * Updates a Key/Value pair in the dictionary. Finds pair with key matching the inputted key
@@ -43,11 +44,11 @@ public interface DictionaryADT<K,V>
      * 
      * @param key The key belonging to the key/Value pair to be updated
      * @param value The new value the user wishes to assign to the Key/Value pair
-     * @throws IllegalArgumentException if the Key OR Value inputted are NULL
+     * @throws NullPointerException if the Key OR Value inputted are NULL
      * @throws KeyNotFoundException if the key does not exist in the dictionary
      * @return True if update was successfully completed, False if not.
      */
-    public boolean update(K key, V value) throws IllegalArgumentException, KeyNotFoundException;
+    public boolean update(K key, V value) throws NullPointerException, KeyNotFoundException;
     
     /**
      * Retrieves the Value associated with and inputted Key
