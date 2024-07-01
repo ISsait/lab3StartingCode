@@ -25,7 +25,7 @@ public class DictionaryTest {
     }
     
     @BeforeClass
-    public static void setUpClass() {
+    public static void setUpClass() throws DuplicateKeyException {
         testDictionary = new Dictionary();
         int key1 = 3;
         String value1 = "cheese";
@@ -71,13 +71,13 @@ public class DictionaryTest {
 //    }
     
     @Test
-    public void testInsertValid() {
+    public void testInsertValid() throws DuplicateKeyException {
         System.out.println("testInsertValid");
         Object key = 6;
         Object value = "tomatoe";
         assertTrue(emptyDictionary.insert(key, value));
         // TODO review the generated test code and remove the default call to fail.
-        fail("testInsertValid failed.");
+        //fail("testInsertValid failed.");
     }
     
     @Test
@@ -92,7 +92,7 @@ public class DictionaryTest {
         String actual = ex.getMessage();
         assertTrue(actual.contains(expected));
         // TODO review the generated test code and remove the default call to fail.
-        fail("testInsertInvalid failed.");
+        //fail("testInsertInvalid failed.");
     }
     
     @Test
@@ -107,7 +107,7 @@ public class DictionaryTest {
         String actual = ex.getMessage();
         assertTrue(actual.contains(expected));
         // TODO review the generated test code and remove the default call to fail.
-        fail("testInsertDuplicateKey failed.");
+        //fail("testInsertDuplicateKey failed.");
     }
 
     /**
@@ -126,7 +126,7 @@ public class DictionaryTest {
 //    }
     
     @Test
-    public void testRemoveValid() {
+    public void testRemoveValid() throws DuplicateKeyException {
         System.out.println("testRemoveValid");
         int key = 1;
         String value = "apple";
@@ -135,7 +135,7 @@ public class DictionaryTest {
         boolean result = emptyDictionary.remove(key);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("testRemoveValid failed.");
+        //fail("testRemoveValid failed.");
     }
     
     @Test
@@ -146,7 +146,7 @@ public class DictionaryTest {
         boolean result = testDictionary.remove(key);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("testRemoveInvalid failed.");
+        //fail("testRemoveInvalid failed.");
     }
 
     /**
@@ -165,8 +165,11 @@ public class DictionaryTest {
 //        fail("The test case is a prototype.");
 //    }
     
+    //======================================================================================
+    // ---------------------------TESTS FOR UPDATE METHOD-----------------------------------
+    //======================================================================================
     @Test
-    public void testUpdateValid() {
+    public void testUpdateValid() throws KeyNotFoundException, DuplicateKeyException {
         System.out.println("testUpdateValid");
         int key = 1;
         String value = "apple";
@@ -176,27 +179,30 @@ public class DictionaryTest {
         boolean result = emptyDictionary.update(key, Value2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("testUpdateValid failed.");
+        //fail("testUpdateValid failed.");
     }
     
     @Test
-    public void testUpdateInvalidKey() {
+    public void testUpdateInvalidKey() throws KeyNotFoundException, DuplicateKeyException {
         // Try to update with an invalid key (no such key in dictionary)
         System.out.println("testUpdateInvalidKey");
         int key = 1;
         String value = "apple";
         int key2 = 2;
-        String Value2 = "pizza";
+        String value2 = "pizza";
         emptyDictionary.insert(key, value);
-        boolean expResult = false;
-        boolean result = emptyDictionary.update(key2, Value2);
-        assertEquals(expResult, result);
+        Exception ex = assertThrows(KeyNotFoundException.class, ()->{
+            emptyDictionary.update(key2, value2);
+        });
+        String expected = "Invalid key";
+        String actual = ex.getMessage();
+        assertTrue(actual.contains(expected));
         // TODO review the generated test code and remove the default call to fail.
-        fail("testUpdateInvalidKey failed.");
+        //fail("testUpdateInvalidKey failed.");
     }
     
     @Test
-    public void testUpdateNullValue() {
+    public void testUpdateNullValue() throws NullPointerException{
         // Try to update an existing valid value to null.
         System.out.println("testUpdateNullValue");
         int key = 3;
@@ -208,37 +214,25 @@ public class DictionaryTest {
         String actual = ex.getMessage();
         assertTrue(actual.contains(expected));
         // TODO review the generated test code and remove the default call to fail.
-        fail("testUpdateNullValue failed.");
+        //fail("testUpdateNullValue failed.");
     }
-
-    /**
-     * Test of lookup method, of class Dictionary.
-     */
-//    @Test
-//    public void testLookup() {
-//        System.out.println("lookup");
-//        Object key = null;
-//        Dictionary instance = new Dictionary();
-//        Object expResult = null;
-//        Object result = instance.lookup(key);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
     
+    //======================================================================================
+    // ---------------------------TESTS FOR LOOKUP METHOD-----------------------------------
+    //======================================================================================
     @Test
-    public void testLookupValidKey() {
+    public void testLookupValidKey() throws KeyNotFoundException{
         System.out.println("testLookupValidKey");
         Object key = 3;
         Object expResult = "cheese";
         Object result = testDictionary.lookup(key);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("testLookupValidKey failed.");
+        //fail("testLookupValidKey failed.");
     }
     
     @Test
-    public void testLookupInvalidKey() {
+    public void testLookupInvalidKey() throws KeyNotFoundException{
         System.out.println("testLookupInvalidKey");
         Object key = 47;
         Exception ex = assertThrows(KeyNotFoundException.class, ()->{
@@ -248,7 +242,7 @@ public class DictionaryTest {
         String actual = ex.getMessage();
         assertTrue(actual.contains(expected));
         // TODO review the generated test code and remove the default call to fail.
-        fail("testLookupInvalidKey failed.");
+        //fail("testLookupInvalidKey failed.");
     }
     
 }
