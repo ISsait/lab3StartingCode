@@ -14,19 +14,22 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
 	private ArrayList<K> keys;
 	private ArrayList<V> values;
 
-    public Dictionary() {
-        this.keys = new ArrayList<K>();
-        this.values = new ArrayList<V>();
+        public Dictionary() {
+            this.keys = new ArrayList<>();
+            this.values = new ArrayList<>();
     }
-        
-        
+
         
         // blank methods to implement ADT and get rid of errors
         @Override
         public boolean insert(K key, V value){
+<<<<<<< HEAD
             // check values are valid - possible exception
             this.keys.add(key);
             this.values.add(value);
+=======
+
+>>>>>>> main
             return false;
         }
         @Override
