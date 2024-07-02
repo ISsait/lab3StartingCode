@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/istoe/Documents/NetBeansProjects/lab3/src/implementations/Dictionary.java</file>
             <file>file:/C:/Users/istoe/Documents/NetBeansProjects/lab3/test/implementations/DictionaryTest.java</file>
+            <file>file:/C:/Users/istoe/Documents/NetBeansProjects/lab3/src/exceptions/InvalidArgumentException.java</file>
             <file>file:/C:/Users/istoe/Documents/NetBeansProjects/lab3/src/utilities/DictionaryADT.java</file>
         </group>
     </open-files>

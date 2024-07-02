@@ -18,6 +18,7 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
         if(this.keys.size()==this.values.size()){
             this.keys = new ArrayList<>();
             this.values = new ArrayList<>();
+            size = this.keys.size();
         } else {
             throw new InvalidArgumentException("keys and values must be the same length.");
         }        
@@ -29,22 +30,21 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
     public boolean insert(K key, V value) throws DuplicateKeyException, NullPointerException{
         // Hey Ian! - I couldnt run mytests without writing this for setup purposes
         // feel free to delete this code
-        if ((key != null) || (value != null)){
-            for (int i = 0; i < size; i++){
-                if (this.keys.get(i).equals(key)){
-                    throw new DuplicateKeyException("duplicate");
-                }
+        if (key == null || value == null){
+                throw new NullPointerException("null");
+        }           
+        for (int i = 0; i < size; i++){
+            if (this.keys.get(i).equals(key)){
+                throw new DuplicateKeyException("duplicate");
             }
-            this.keys.add(key);
-            this.values.add(value);
-            this.size++;
-            return true;
-        } else {
-            throw new NullPointerException("null");
         }
-        
-        
-    }
+        this.keys.add(key);
+        this.values.add(value);
+        this.size++;
+        return true;
+    }       
+    
+
     @Override
     public boolean remove(K key)throws NullPointerException {
         if (key == null){

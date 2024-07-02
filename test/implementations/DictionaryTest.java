@@ -25,7 +25,7 @@ public class DictionaryTest {
     }
     
     @BeforeClass
-    public static void setUpClass() throws DuplicateKeyException {
+    public static void setUpClass() throws DuplicateKeyException, InvalidArgumentException {
         testDictionary = new Dictionary();
         int key1 = 3;
         String value1 = "cheese";
@@ -47,7 +47,7 @@ public class DictionaryTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws InvalidArgumentException {
         emptyDictionary = new Dictionary();
     }
     
