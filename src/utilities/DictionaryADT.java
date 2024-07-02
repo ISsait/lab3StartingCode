@@ -33,10 +33,9 @@ public interface DictionaryADT<K,V>
      * 
      * @param key the key belonging to the Key/Value pair that the user wishes to remove
      * @throws NullPointerException if the key IS NULL
-     * @throws KeyNotFoundException if the key does not exist in the dictionary
      * @return true if pair is successfully removed, False if not.
      */
-    public boolean remove(K key) throws NullPointerException, KeyNotFoundException;
+    public boolean remove(K key) throws NullPointerException;
     
     /**
      * Updates a Key/Value pair in the dictionary. Finds pair with key matching the inputted key

@@ -22,11 +22,11 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
         
     // blank methods to implement ADT and get rid of errors
     @Override
-    public boolean insert(K key, V value) throws DuplicateKeyException{
+    public boolean insert(K key, V value) throws DuplicateKeyException, NullPointerException{
         // Hey Ian! - I couldnt run mytests without writing this for setup purposes
         // feel free to delete this code
         if ((key != null) || (value != null)){
-            for (int i = 0; i < this.keys.size(); i++){
+            for (int i = 0; i < size; i++){
                 if (this.keys.get(i).equals(key)){
                     throw new DuplicateKeyException("duplicate");
                 }
@@ -42,7 +42,23 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
         
     }
     @Override
-    public boolean remove(K key){
+    public boolean remove(K key)throws NullPointerException {
+        if (key == null){
+            throw new NullPointerException("null");
+        }
+        
+        for (int i = 0; i < size; i++){
+            if (this.keys.get(i) == key){
+                // V removed = this.values.get(i);
+                for (int j = i; j < size - 1; j++){
+                    this.keys.set(j, this.keys.get(j+1));
+                    this.values.set(j, this.values.get(j+1));
+                }
+                size--;
+                // System.out.println(removed);
+                return true;
+            }
+        }
         return false;
     }
     

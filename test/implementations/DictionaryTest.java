@@ -56,20 +56,13 @@ public class DictionaryTest {
         emptyDictionary = null;
     }
 
+    //======================================================================================
+    // ---------------------------TESTS FOR INSERT METHOD-----------------------------------
+    //======================================================================================
     /**
      * Test of insert method, of class Dictionary.
      */
-//    @Test
-//    public void testInsert() {
-//        System.out.println("insert");
-//        Object key = null;
-//        Object value = null;
-//        Dictionary instance = new Dictionary();
-//        instance.insert(key, value);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-    
+
     @Test
     public void testInsertValid() throws DuplicateKeyException {
         System.out.println("testInsertValid");
@@ -110,23 +103,15 @@ public class DictionaryTest {
         //fail("testInsertDuplicateKey failed.");
     }
 
+    //======================================================================================
+    // ---------------------------TESTS FOR REMOVE METHOD-----------------------------------
+    //======================================================================================
     /**
      * Test of remove method, of class Dictionary.
      */
-//    @Test
-//    public void testRemove() {
-//        System.out.println("remove");
-//        Object key = null;
-//        Dictionary instance = new Dictionary();
-//        boolean expResult = false;
-//        boolean result = instance.remove(key);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
     
     @Test
-    public void testRemoveValid() throws DuplicateKeyException {
+    public void testRemoveValid() throws DuplicateKeyException, KeyNotFoundException {
         System.out.println("testRemoveValid");
         int key = 1;
         String value = "apple";
@@ -139,7 +124,7 @@ public class DictionaryTest {
     }
     
     @Test
-    public void testRemoveInvalid() {
+    public void testRemoveInvalid() throws KeyNotFoundException {
         System.out.println("testRemoveInvalid");
         Object key = 41;
         boolean expResult = false;
@@ -148,26 +133,14 @@ public class DictionaryTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("testRemoveInvalid failed.");
     }
-
-    /**
-     * Test of update method, of class Dictionary.
-     */
-//    @Test
-//    public void testUpdate() {
-//        System.out.println("update");
-//        Object key = null;
-//        Object Value = null;
-//        Dictionary instance = new Dictionary();
-//        boolean expResult = false;
-//        boolean result = instance.update(key, Valu);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
     
     //======================================================================================
     // ---------------------------TESTS FOR UPDATE METHOD-----------------------------------
     //======================================================================================
+    
+    /**
+     * Test of update method, of class Dictionary.
+     */
     @Test
     public void testUpdateValid() throws KeyNotFoundException, DuplicateKeyException {
         System.out.println("testUpdateValid");
