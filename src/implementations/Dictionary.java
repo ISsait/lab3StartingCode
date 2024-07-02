@@ -15,21 +15,15 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
     private int size = 0;
 
     public Dictionary() throws InvalidArgumentException {
-        if(this.keys.size()==this.values.size()){
-            this.keys = new ArrayList<>();
-            this.values = new ArrayList<>();
-            size = this.keys.size();
-        } else {
-            throw new InvalidArgumentException("keys and values must be the same length.");
-        }        
+        this.keys = new ArrayList<>();
+        this.values = new ArrayList<>();
+        size = this.keys.size();       
     }
 
         
     // blank methods to implement ADT and get rid of errors
     @Override
     public boolean insert(K key, V value) throws DuplicateKeyException, NullPointerException{
-        // Hey Ian! - I couldnt run mytests without writing this for setup purposes
-        // feel free to delete this code
         if (key == null || value == null){
                 throw new NullPointerException("null");
         }           
