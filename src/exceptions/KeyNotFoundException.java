@@ -6,7 +6,7 @@ package exceptions;
 
 /**
  *
- * @author School
+ * @author Ian
  */
 public class KeyNotFoundException extends Exception{
 

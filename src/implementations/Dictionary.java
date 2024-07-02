@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.lang.NullPointerException;
 import exceptions.*;
 import utilities.DictionaryADT;
-
+/**
+ * 
+ * @author Ian
+ * @param <K>
+ * @param <V>
+ * precondition: a list of keys and a list of values of equal length.
+ * postcondition: a mapped dictionary of key value pairs
+ */
 public class Dictionary<K,V> implements DictionaryADT<K,V>
 {
     // constant
@@ -14,6 +21,10 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
     private ArrayList<V> values;
     private int size = 0;
 
+    /**
+     * Constructor for Dictionary object
+     * @throws InvalidArgumentException 
+     */
     public Dictionary() throws InvalidArgumentException {
         this.keys = new ArrayList<>();
         this.values = new ArrayList<>();
@@ -21,7 +32,14 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
     }
 
         
-    // blank methods to implement ADT and get rid of errors
+    /**
+     * Inserts a new key value pair at the end of the dictionary
+     * @param key
+     * @param value
+     * @return
+     * @throws DuplicateKeyException
+     * @throws NullPointerException 
+     */
     @Override
     public boolean insert(K key, V value) throws DuplicateKeyException, NullPointerException{
         if (key == null || value == null){
@@ -38,7 +56,12 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
         return true;
     }       
     
-
+    /**
+     * Removes the key value pair from the dictionary.
+     * @param key
+     * @return
+     * @throws NullPointerException 
+     */
     @Override
     public boolean remove(K key)throws NullPointerException {
         if (key == null){

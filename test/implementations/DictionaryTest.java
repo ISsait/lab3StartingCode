@@ -107,7 +107,8 @@ public class DictionaryTest {
     // ---------------------------TESTS FOR REMOVE METHOD-----------------------------------
     //======================================================================================
     /**
-     * Test of remove method, of class Dictionary.
+     * Test of remove method, of class Dictionary with a valid key argument.
+     * @throws DuplicateKeyException, KeyNotFoundException
      */
     
     @Test
@@ -122,7 +123,10 @@ public class DictionaryTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("testRemoveValid failed.");
     }
-    
+    /**
+     * Tests the remove() method from the Dictionary.java implementation using an invalid key argument
+     * @throws KeyNotFoundException 
+     */
     @Test
     public void testRemoveInvalid() throws KeyNotFoundException {
         System.out.println("testRemoveInvalid");
@@ -139,7 +143,8 @@ public class DictionaryTest {
     //======================================================================================
     
     /**
-     * Test of update method, of class Dictionary.
+     * Test of update method, of class Dictionary with a valid key value pair
+     * @throws KeyNotFoundException, DuplicateKeyException
      */
     @Test
     public void testUpdateValid() throws KeyNotFoundException, DuplicateKeyException {
@@ -154,7 +159,11 @@ public class DictionaryTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("testUpdateValid failed.");
     }
-    
+    /**
+     * Tests the update() method from the Dictionary.java class with an invalid key
+     * @throws KeyNotFoundException
+     * @throws DuplicateKeyException 
+     */
     @Test
     public void testUpdateInvalidKey() throws KeyNotFoundException, DuplicateKeyException {
         // Try to update with an invalid key (no such key in dictionary)
@@ -173,7 +182,10 @@ public class DictionaryTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("testUpdateInvalidKey failed.");
     }
-    
+    /**
+     * Tests the update() method from the Dictionary.java class with a null value
+     * @throws NullPointerException 
+     */
     @Test
     public void testUpdateNullValue() throws NullPointerException{
         // Try to update an existing valid value to null.
@@ -193,6 +205,10 @@ public class DictionaryTest {
     //======================================================================================
     // ---------------------------TESTS FOR LOOKUP METHOD-----------------------------------
     //======================================================================================
+    /**
+     * Tests the lookup() method from the Dictionary.java class with a valid key argument
+     * @throws KeyNotFoundException 
+     */
     @Test
     public void testLookupValidKey() throws KeyNotFoundException{
         System.out.println("testLookupValidKey");
@@ -203,7 +219,10 @@ public class DictionaryTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("testLookupValidKey failed.");
     }
-    
+    /**
+     * Tests the lookup()method from the Dictionary.java class using an invalid key argument
+     * @throws KeyNotFoundException 
+     */
     @Test
     public void testLookupInvalidKey() throws KeyNotFoundException{
         System.out.println("testLookupInvalidKey");
