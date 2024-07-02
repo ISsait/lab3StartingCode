@@ -14,9 +14,13 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
     private ArrayList<V> values;
     private int size = 0;
 
-    public Dictionary() {
-        this.keys = new ArrayList<>();
-        this.values = new ArrayList<>();
+    public Dictionary() throws InvalidArgumentException {
+        if(this.keys.size()==this.values.size()){
+            this.keys = new ArrayList<>();
+            this.values = new ArrayList<>();
+        } else {
+            throw new InvalidArgumentException("keys and values must be the same length.");
+        }        
     }
 
         
